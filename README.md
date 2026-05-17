@@ -4,7 +4,8 @@
 
 ## 專案資訊
 - **主題**：潮流服飾商城 (Apparel Fashion Store)
-- **組別**：個人組
+- **組別**：2人組
+- **組員**：邱渝璇、洪駿宥
 - **Github Repo**：[https://github.com/kelly061495-code/Final-Report-_Trendy-Apparel-Mall.git](https://github.com/kelly061495-code/Final-Report-_Trendy-Apparel-Mall.git)
 
 ## 核心功能完成度
@@ -19,7 +20,7 @@
 
 ## 專案目錄結構
 ```text
-期末報告_個人/
+期末報告_2人組/
 ├── README.md
 ├── index.html          (主頁面結構)
 ├── css/

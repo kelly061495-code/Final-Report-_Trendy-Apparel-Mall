@@ -1,6 +1,6 @@
 import { products, Validators } from './data.js';
 import { addToCart } from './cart.js';
-import { showToast, navigate } from './app.js';
+import { showToast, navigate } from './utils.js';
 
 export function renderProducts(container) {
     let html = '<div class="product-grid">';

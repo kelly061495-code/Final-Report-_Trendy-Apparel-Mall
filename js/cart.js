@@ -1,6 +1,6 @@
 import { Storage, products as inventory } from './data.js';
 import { Auth } from './auth.js';
-import { showToast, navigate, updateCartBadge } from './app.js';
+import { showToast, navigate, updateCartBadge } from './utils.js';
 
 let cart = Storage.get('cart') || [];
 

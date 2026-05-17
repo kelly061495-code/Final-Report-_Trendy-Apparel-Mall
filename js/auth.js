@@ -1,5 +1,5 @@
 import { Storage, Validators } from './data.js';
-import { showToast, navigate } from './app.js';
+import { showToast, navigate } from './utils.js';
 
 let currentUser = Storage.get('currentUser');
 

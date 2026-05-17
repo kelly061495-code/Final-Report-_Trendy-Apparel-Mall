@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="潮流服飾商城 Trendy Apparel — 精選街頭時尚單品，展現你的獨特風格">
     <title>潮流服飾商城 | Trendy Apparel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,23 +16,24 @@
         </div>
         <div class="nav-links">
             <a href="#" data-page="home" class="active">首頁</a>
-            <a href="#" data-page="cart"><i class="fa-solid fa-cart-shopping"></i> 購物車 <span id="cart-count" class="badge">0</span></a>
-            <a href="#" id="nav-user" data-page="auth"><i class="fa-solid fa-user"></i> 登入/註冊</a>
+            <a href="#" data-page="cart">
+                <i class="fa-solid fa-cart-shopping"></i> 購物車
+                <span id="cart-count" class="badge">0</span>
+            </a>
+            <a href="#" id="nav-user" data-page="auth">
+                <i class="fa-solid fa-user"></i> 登入/註冊
+            </a>
         </div>
     </nav>
 
     <main id="app-container">
-        <!-- Views will be dynamically injected here -->
+        <!-- 動態內容注入區 -->
     </main>
 
     <!-- Notification Toast -->
     <div id="toast" class="toast"></div>
 
-    <!-- Scripts -->
-    <script type="module" src="js/data.js"></script>
-    <script type="module" src="js/auth.js"></script>
-    <script type="module" src="js/products.js"></script>
-    <script type="module" src="js/cart.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <!-- 單一入口腳本，不使用 ES Module，相容 file:// 直接開啟 -->
+    <script src="js/main.js"></script>
 </body>
 </html>
