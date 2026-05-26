@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="description" content="TRENDY APPAREL MALL — 極簡街頭服飾電商" />
+  <title>TRENDY APPAREL MALL — 極簡街頭服飾</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Archivo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* TRENDY APPAREL MALL — 全站樣式 */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Archivo', 'Helvetica Neue', sans-serif;
+      letter-spacing: -0.01em;
+      background: #FFFFFF;
+      color: #0A0A0A;
+    }
+
+    .font-display {
+      font-family: 'Archivo Black', sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .font-mono {
+      font-family: 'Space Mono', monospace;
+    }
+
+    ::selection {
+      background: #0A0A0A;
+      color: #fff;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid rgba(10, 10, 10, 0.06);
+    }
+
+    .glass-dark {
+      background: rgba(10, 10, 10, 0.55);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(10, 10, 10, 0.08);
+    }
+
+    .grain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.07;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    .img-zoom {
+      transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .group:hover .img-zoom {
+      transform: scale(1.06);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #F5F5F4;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0A0A0A;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes heartBeat {
+      0% {
+        transform: scale(1)
+      }
+
+      25% {
+        transform: scale(1.3)
+      }
+
+      50% {
+        transform: scale(.95)
+      }
+
+      75% {
+        transform: scale(1.15)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide-in-up {
+      animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .marquee-track {
+      animation: marquee 40s linear infinite;
+    }
+
+    .heart-beat {
+      animation: heartBeat 0.6s ease;
+    }
+
+    .fade-up {
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .bounce {
+      animation: bounce 2s ease infinite;
+    }
+
+    .accent-red {
+      color: #E11D48;
+    }
+
+    .bg-accent-red {
+      background-color: #E11D48;
+    }
+
+    .accent-amber {
+      color: #D97706;
+    }
+
+    .bg-accent-amber {
+      background-color: #D97706;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    button {
+      user-select: none;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #0A0A0A;
+      outline-offset: 2px;
+    }
+
+    button:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    @media (hover: none) {
+      .group:hover .img-zoom {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      button,
+      a {
+        min-height: 44px;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .preorder-badge {
+      background-color: #D97706;
+      color: white;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-family: 'Space Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .size-opt {
+      height: 48px;
+      min-width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .size-opt.active {
+      background: black;
+      color: white;
+      border-color: black;
+    }
+
+    .modal-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ========== 導覽列 HEADER ========== -->
+  <header class="glass fixed top-0 left-0 right-0 z-50">
+    <nav class="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 py-4 flex items-center justify-between">
+      <button onclick="navigateTo('home')" class="font-display text-xl sm:text-2xl tracking-tight">TRENDY</button>
+
+      <div class="hidden md:flex items-center space-x-8 font-mono text-xs uppercase tracking-wider">
+        <button onclick="navigateTo('shop', 'all')" class="hover:text-gray-600 transition">全部商品</button>
+        <button onclick="navigateTo('shop', 'shirts')" class="hover:text-gray-600 transition">上衣</button>
+        <button onclick="navigateTo('shop', 'pants')" class="hover:text-gray-600 transition">褲子</button>
+        <button onclick="navigateTo('shop', 'hoodies')" class="hover:text-gray-600 transition">連帽衫</button>
+        <button onclick="navigateTo('shop', 'jackets')" class="hover:text-gray-600 transition">外套</button>
+        <button onclick="navigateTo('shop', 'bags')" class="hover:text-gray-600 transition">包包</button>
+        <button onclick="navigateTo('shop', 'jewelry')" class="hover:text-gray-600 transition">配飾</button>
+        <button onclick="navigateTo('preorder')" class="hover:text-gray-600 transition">預購專區</button>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <button onclick="toggleSearch()" title="搜尋" class="hover:opacity-60 transition"><i data-lucide="search"
+            class="w-5 h-5"></i></button>
+        <button onclick="handleAccountClick()" title="會員中心" class="hover:opacity-60 transition"><i data-lucide="user"
+            class="w-5 h-5"></i></button>
+        <button onclick="toggleWishlist()" title="願望清單" class="hover:opacity-60 transition relative">
+          <i data-lucide="heart" class="w-5 h-5"></i>
+          <span id="wishlist-count"
+            class="hidden absolute -top-2 -right-2 bg-accent-red text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-mono">0</span>
+        </button>
+        <button onclick="toggleCart()" title="購物車" class="hover:opacity-60 transition relative">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          <span id="cart-count"
+            class="hidden absolute -top-2 -right-2 bg-accent-red text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-mono">0</span>
+        </button>
+      </div>
+    </nav>
+    <div id="search-bar" class="hidden border-t border-black/10 bg-white">
+      <div class="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 py-4 flex gap-4">
+        <input type="text" id="search-input" placeholder="搜尋商品名稱、風格或標籤 (例: 街頭, 暗黑, Tech)..."
+          class="w-full border-b-2 border-black/20 focus:border-black outline-none pb-2 font-mono text-sm">
+        <button onclick="toggleSearch()"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== 主要內容 MAIN CONTENT ========== -->
+  <main id="app-content" class="pt-20"></main>
+
+  <!-- ========== 頁腳 FOOTER ========== -->
+  <footer class="bg-[#0A0A0A] text-white py-32">
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+        <div>
+          <h3 class="font-display text-2xl mb-6">TRENDY</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">極簡街頭服飾電商平台，精選國際潮流品牌。為您提供最純粹的時尚穿搭體驗。</p>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider mb-6">購物資訊</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><button onclick="openInfoModal('shipping')" class="hover:text-white transition">配送方式</button></li>
+            <li><button onclick="openInfoModal('returns')" class="hover:text-white transition">退換貨政策</button></li>
+            <li><button onclick="openInfoModal('size')" class="hover:text-white transition">尺寸指南</button></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider mb-6">客戶服務</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><button onclick="openInfoModal('contact')" class="hover:text-white transition">聯絡我們</button></li>
+            <li><button onclick="openInfoModal('faq')" class="hover:text-white transition">常見問題 FAQ</button></li>
+            <li><button onclick="openInfoModal('tracking')" class="hover:text-white transition">訂單追蹤</button></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-mono text-xs uppercase tracking-wider mb-6">訂閱電子報</h4>
+          <div class="flex gap-2">
+            <input type="email" placeholder="電子郵件"
+              class="bg-transparent border-b border-white/20 focus:border-white outline-none pb-2 text-sm flex-1">
+            <button class="hover:opacity-60 transition" title="訂閱"><i data-lucide="arrow-right"
+                class="w-5 h-5"></i></button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-mono">
+        <p>&copy; 2026 TRENDY APPAREL MALL. 版權所有。</p>
+        <p class="mt-4 md:mt-0 font-bold tracking-widest uppercase">官方單機獨立版 v2.0</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== 彈窗與側欄 MODALS & DRAWERS ========== -->
+  <div id="info-modal" class="hidden fixed inset-0 z-[60] overflow-y-auto">
+    <div class="glass-dark absolute inset-0 fade-in" onclick="closeInfoModal()"></div>
+    <div class="relative min-h-screen flex items-start justify-center p-4 py-16">
+      <div class="glass-card rounded-lg w-full max-w-4xl slide-in-up">
+        <div class="p-8 md:p-12">
+          <div class="flex justify-between items-start mb-8">
+            <div>
+              <p id="info-modal-en" class="font-mono text-xs uppercase tracking-[0.3em] text-gray-500 mb-2"></p>
+              <h2 id="info-modal-title" class="font-display text-4xl tracking-tight"></h2>
+            </div>
+            <button onclick="closeInfoModal()"><i data-lucide="x" class="w-7 h-7"></i></button>
+          </div>
+          <div id="info-modal-body" class="space-y-8"></div>
+          <div class="mt-12 pt-8 border-t border-black/10 text-center"><button onclick="closeInfoModal()"
+              class="bg-black text-white px-16 py-4 font-mono text-xs uppercase tracking-wider hover:bg-gray-800 transition">完成閱讀</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cart-drawer" class="hidden fixed inset-0 z-50">
+    <div class="glass-dark absolute inset-0 fade-in" onclick="toggleCart()"></div>
+    <div
+      class="absolute right-0 top-0 bottom-0 w-full md:w-[550px] bg-white slide-in-right overflow-y-auto flex flex-col shadow-2xl">
+      <div class="p-8 border-b border-black/10 flex justify-between items-center">
+        <h2 class="font-display text-3xl italic">購物車</h2><button onclick="toggleCart()"><i data-lucide="x"
+            class="w-7 h-7"></i></button>
+      </div>
+      <div id="cart-items" class="flex-1 p-8 space-y-6 overflow-y-auto"></div>
+      <div class="border-t border-black/10 p-8 space-y-6 bg-gray-50">
+        <div class="flex justify-between items-center"><span
+            class="font-mono text-sm uppercase font-bold">預估小計</span><span id="cart-subtotal"
+            class="text-3xl font-display tracking-tighter">NT$ 0</span></div>
+        <button onclick="proceedToCheckout()"
+          class="w-full bg-black text-white py-6 font-display text-xl uppercase tracking-[0.2em] hover:bg-gray-800 transition shadow-lg">前往結帳</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="wishlist-drawer" class="hidden fixed inset-0 z-50">
+    <div class="glass-dark absolute inset-0 fade-in" onclick="toggleWishlist()"></div>
+    <div
+      class="absolute right-0 top-0 bottom-0 w-full md:w-[500px] bg-white slide-in-right overflow-y-auto divide-y divide-black/10">
+      <div class="p-8 flex justify-between items-center">
+        <h2 class="font-display text-3xl italic">願望清單</h2><button onclick="toggleWishlist()"><i data-lucide="x"
+            class="w-7 h-7"></i></button>
+      </div>
+      <div id="wishlist-items" class="p-8 space-y-6"></div>
+    </div>
+  </div>
+
+  <div id="auth-modal" class="hidden fixed inset-0 z-50">
+    <div class="glass-dark absolute inset-0 fade-in" onclick="toggleAuth()"></div>
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-md glass-card rounded-2xl slide-in-up p-10 shadow-2xl">
+      <div class="flex justify-between items-center mb-10">
+        <h2 id="auth-title" class="font-display text-3xl italic">會員登入</h2><button onclick="toggleAuth()"><i
+            data-lucide="x" class="w-7 h-7"></i></button>
+      </div>
+      <div id="login-form" class="space-y-6">
+        <div class="space-y-1"><label class="text-[10px] font-mono uppercase text-gray-400 font-bold">電子郵件
+            Email</label><input type="email" id="login-email"
+            class="w-full border-b-2 border-black/10 focus:border-black outline-none pb-2 transition-all"></div>
+        <div class="space-y-1"><label class="text-[10px] font-mono uppercase text-gray-400 font-bold">密碼
+            Password</label><input type="password" id="login-password"
+            class="w-full border-b-2 border-black/10 focus:border-black outline-none pb-2 transition-all"></div>
+        <p id="login-error" class="hidden text-red-600 text-xs font-mono"></p>
+        <button onclick="handleLogin()"
+          class="w-full bg-black text-white py-5 font-display text-lg uppercase tracking-widest hover:bg-gray-800 transition">登入系統</button>
+        <p class="text-sm text-center text-gray-500 font-mono">還沒有帳號? <button onclick="switchToRegister()"
+            class="text-black font-bold underline">立即按此註冊</button></p>
+      </div>
+      <div id="register-form" class="hidden space-y-6">
+        <div class="space-y-1"><label class="text-[10px] font-mono uppercase text-gray-400 font-bold">真實姓名 Full
+            Name</label><input type="text" id="register-name"
+            class="w-full border-b-2 border-black/10 focus:border-black outline-none pb-2 transition-all"></div>
+        <div class="space-y-1"><label class="text-[10px] font-mono uppercase text-gray-400 font-bold">電子郵件
+            Email</label><input type="email" id="register-email"
+            class="w-full border-b-2 border-black/10 focus:border-black outline-none pb-2 transition-all"></div>
+        <div class="space-y-1"><label class="text-[10px] font-mono uppercase text-gray-400 font-bold">設定密碼 (至少 6
+            位數)</label><input type="password" id="register-password"
+            class="w-full border-b-2 border-black/10 focus:border-black outline-none pb-2 transition-all"></div>
+        <p id="register-error" class="hidden text-red-600 text-xs font-mono"></p>
+        <button onclick="handleRegister()"
+          class="w-full bg-black text-white py-5 font-display text-lg uppercase tracking-widest hover:bg-gray-800 transition">註冊帳號</button>
+        <p class="text-sm text-center text-gray-500 font-mono">已有帳號? <button onclick="switchToLogin()"
+            class="text-black font-bold underline">返回會員登入</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="product-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="glass-dark absolute inset-0 fade-in" onclick="closeModal()"></div>
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+      <div class="glass-card rounded-2xl w-full max-w-6xl slide-in-up max-h-[95vh] overflow-y-auto modal-scroll"
+        id="product-modal-content"></div>
+    </div>
+  </div>
+
+  <div id="recommend-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="glass-dark absolute inset-0 fade-in" onclick="closeRecommendModal()"></div>
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+      <div class="glass-card rounded-2xl w-full max-w-4xl slide-in-up p-12">
+        <div class="flex justify-between items-center mb-10">
+          <h2 class="font-display text-4xl uppercase italic">智慧穿搭推薦</h2><button onclick="closeRecommendModal()"><i
+              data-lucide="x" class="w-8 h-8"></i></button>
+        </div>
+        <div id="recommend-form" class="space-y-10">
+          <div class="grid grid-cols-2 gap-10">
+            <div class="space-y-3"><label class="block text-xs font-mono uppercase text-gray-400 font-bold">身高 Height
+                (cm)</label><input type="number" id="rec-height" placeholder="175"
+                class="w-full border-b-2 border-black/20 focus:border-black outline-none py-2 text-2xl font-display">
+            </div>
+            <div class="space-y-3"><label class="block text-xs font-mono uppercase text-gray-400 font-bold">體重 Weight
+                (kg)</label><input type="number" id="rec-weight" placeholder="65"
+                class="w-full border-b-2 border-black/20 focus:border-black outline-none py-2 text-2xl font-display">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase text-gray-400 mb-6 font-bold">風格偏好 Style Preference</label>
+            <div id="style-tags-container" class="flex flex-wrap gap-3"></div>
+          </div>
+          <button onclick="generateRecommendations()"
+            class="w-full bg-black text-white py-6 font-display text-xl uppercase tracking-widest hover:bg-gray-800 transition shadow-xl">開始計算分析</button>
+        </div>
+        <div id="recommend-results" class="hidden mt-8"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"
+    class="hidden fixed bottom-12 right-12 glass-dark text-white px-8 py-5 rounded-xl shadow-2xl z-[100] fade-in">
+    <p id="toast-message" class="font-mono text-sm tracking-wide"></p>
+  </div>
+
+  <!-- ========== 數據與邏輯 DATA & LOGIC ========== -->
+  <script>
+    // ========== 圖片庫 (24 品項完整資料) ==========
+    const IMG = {
+      shirt: ["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800", "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=800", "https://images.unsplash.com/photo-1622445275576-721325763afe?w=800", "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800", "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800", "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800", "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800", "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=800"],
+      cap: ["https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?w=800", "https://images.pexels.com/photos/984619/pexels-photo-984619.jpeg?w=800", "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?w=800", "https://images.pexels.com/photos/2010812/pexels-photo-2010812.jpeg?w=800", "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800", "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800", "https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=800", "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?w=800"],
+      hoodie: ["https://images.pexels.com/photos/35699659/pexels-photo-35699659.jpeg?w=800", "https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?w=800", "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800", "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=800", "https://images.unsplash.com/photo-1614975059251-992f11792b9f?w=800", "https://images.unsplash.com/photo-1517941823-815bea90d291?w=800"],
+      jacket: ["https://images.pexels.com/photos/27969611/pexels-photo-27969611.jpeg?w=800", "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800", "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800", "https://images.unsplash.com/photo-1559551409-dadc959f76b8?w=800", "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=800", "https://images.unsplash.com/photo-1548883354-94bcfe321cbb?w=800"],
+      pants: ["https://images.pexels.com/photos/35043249/pexels-photo-35043249.jpeg?w=800", "https://images.pexels.com/photos/11716436/pexels-photo-11716436.jpeg?w=800", "https://images.unsplash.com/photo-1584302052177-2e90841dad6a?w=800", "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800", "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800", "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800"],
+      bag: ["https://images.pexels.com/photos/27174548/pexels-photo-27174548.jpeg?w=800", "https://images.pexels.com/photos/22432981/pexels-photo-22432981.jpeg?w=800", "https://images.unsplash.com/photo-1605733513597-a8f8341084e6?w=800", "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800", "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=800"],
+      jewelry: ["https://images.pexels.com/photos/16109321/pexels-photo-16109321.jpeg?w=800", "https://images.pexels.com/photos/16684959/pexels-photo-16684959.jpeg?w=800", "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800", "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800"],
+      model: ["https://images.pexels.com/photos/16376546/pexels-photo-16376546.jpeg?w=800", "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800"]
+    };
+
+    const SIZE_CHARTS = {
+      top: { XS: { length: 64, chest: 50, shoulder: 44, sleeve: 58 }, S: { length: 67, chest: 53, shoulder: 46, sleeve: 60 }, M: { length: 70, chest: 56, shoulder: 48, sleeve: 62 }, L: { length: 73, chest: 59, shoulder: 50, sleeve: 64 }, XL: { length: 76, chest: 62, shoulder: 52, sleeve: 66 }, XXL: { length: 79, chest: 65, shoulder: 54, sleeve: 68 } },
+      pant: { "28": { waist: 71, hip: 96, length: 102 }, "30": { waist: 76, hip: 100, length: 104 }, "32": { waist: 81, hip: 104, length: 106 }, "34": { waist: 86, hip: 108, length: 108 }, "36": { waist: 91, hip: 112, length: 110 } },
+      accessory: { "One Size": { note: "標準均碼" } }
+    };
+
+    function buildGallery(cat, i) { const p = IMG[cat]; const n = p.length; return { main: p[i % n], front: p[(i + 1) % n], back: p[(i + 2) % n], detail: p[(i + 3) % n], model: IMG.model[i % IMG.model.length] }; }
+
+    const PRODUCTS = [
+      { id: "prod_001", name_en: "ECLIPSE Oversized Tee", name_zh: "ECLIPSE 寬鬆短T", category: "shirts", price: 1280, compare_price: 1664, style_tags: ["Oversized", "Street"], material: "100% 美國純棉 280gsm 厚磅", description_zh: "黑色街頭風寬版剪裁，落肩袖型，背後立體刺繡圖騰。", images: buildGallery("shirt", 0), sizes: ["XS", "S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_002", name_en: "VOID Graphic Tee", name_zh: "VOID 暗黑印花T", category: "shirts", price: 1480, compare_price: 1924, style_tags: ["Dark", "Y2K"], material: "Pima 棉 230gsm", description_zh: "暗黑風印花設計，水洗做舊處理，胸前激光雷射印刷。", images: buildGallery("shirt", 1), sizes: ["XS", "S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_013", name_en: "MONO Essential Long Tee", name_zh: "MONO 純色長版T", category: "shirts", price: 1380, compare_price: 1794, style_tags: ["Minimal", "Korean"], material: "海島棉 240gsm 細膩柔感", description_zh: "極簡長版剪裁，純色設計，自然垂墜感，日常穿搭百搭單品。", images: buildGallery("shirt", 3), sizes: ["S", "M", "L", "XL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_014", name_en: "TOKYO Stripe Polo", name_zh: "TOKYO 條紋翻領 Polo", category: "shirts", price: 1680, compare_price: 2184, style_tags: ["Street", "Korean"], material: "棉/聚酯混紡 220gsm 透氣", description_zh: "復古條紋翻領設計，胸前小 logo 刺繡，經典版型，街頭與通勤兼宜。", images: buildGallery("shirt", 5), sizes: ["S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_004", name_en: "MILITIA Cargo Pant", name_zh: "MILITIA 機能工裝褲", category: "pants", price: 2380, compare_price: 2975, style_tags: ["Techwear", "Cargo"], material: "尼龍混紡 防潑水", description_zh: "多口袋機能工裝設計，YKK拉鍊，立體剪裁。", images: buildGallery("pants", 0), sizes: ["28", "30", "32", "34", "36"], size_chart: SIZE_CHARTS.pant },
+      { id: "prod_005", name_en: "Y2K Low-Rise Jean", name_zh: "Y2K 低腰牛仔褲", category: "pants", price: 1880, compare_price: 2350, style_tags: ["Y2K", "Korean"], material: "棉/萊卡丹寧", description_zh: "Y2K 低腰版型，水洗做舊，金屬鉚釘。", images: buildGallery("pants", 1), sizes: ["28", "30", "32", "34", "36"], size_chart: SIZE_CHARTS.pant },
+      { id: "prod_015", name_en: "GHOST Wide-Leg Sweatpant", name_zh: "GHOST 寬褲休閒褲", category: "pants", price: 1780, compare_price: 2314, style_tags: ["Oversized", "Street"], material: "純棉 360gsm 法式毛圈布", description_zh: "寬版垂墜剪裁，束腳設計，腰部抽繩可調，柔軟舒適。", images: buildGallery("pants", 2), sizes: ["S", "M", "L", "XL"], size_chart: SIZE_CHARTS.pant },
+      { id: "prod_016", name_en: "TECH Stretch Trouser", name_zh: "TECH 機能彈性西褲", category: "pants", price: 2580, compare_price: 3354, style_tags: ["Techwear", "Minimal"], material: "彈性聚酯機能料 防皺速乾", description_zh: "都會極簡剪裁，四向彈性，壓膠拉鍊口袋，可正式可休閒。", images: buildGallery("pants", 3), sizes: ["28", "30", "32", "34", "36"], size_chart: SIZE_CHARTS.pant, is_preorder: true, available_date: "2026-04-05" },
+      { id: "prod_006", name_en: "VOID Heavy Hoodie", name_zh: "VOID 重磅連帽衫", category: "hoodies", price: 2680, compare_price: 3484, style_tags: ["Street", "Oversized"], material: "440gsm 重磅純棉抗起球", description_zh: "重磅落肩寬版連帽，立體刺繡，金屬扣繩。", images: buildGallery("hoodie", 0), sizes: ["S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_007", name_en: "KOREAN Soft Hoodie", name_zh: "韓系柔棉連帽衫", category: "hoodies", price: 2180, compare_price: 2834, style_tags: ["Korean", "Minimal"], material: "棉/聚酯 380gsm 柔感", description_zh: "韓系極簡連帽，貼膚柔軟，淨色設計。", images: buildGallery("hoodie", 2), sizes: ["S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_017", name_en: "RIOT Zip Hoodie", name_zh: "RIOT 拉鍊連帽外套", category: "hoodies", price: 2480, compare_price: 3224, style_tags: ["Street", "Punk"], material: "純棉 400gsm 抓絨內裏", description_zh: "全開式拉鍊連帽外套，鋸齒下擺，胸前壓印 logo，具份量感。", images: buildGallery("hoodie", 3), sizes: ["S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_018", name_en: "FOG Pullover Hoodie", name_zh: "FOG 套頭連帽衫", category: "hoodies", price: 2980, compare_price: 3874, style_tags: ["Minimal", "Oversized"], material: "重磅雙面棉 460gsm", description_zh: "極簡無印套頭設計，加大連帽，袋鼠口袋，自然落肩，類訂製版型。", images: buildGallery("hoodie", 5), sizes: ["M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top, is_preorder: true, available_date: "2026-03-22" },
+      { id: "prod_008", name_en: "STORM Tech Shell", name_zh: "STORM 機能風衣外套", category: "jackets", price: 4880, compare_price: 6344, style_tags: ["Techwear", "Cyber"], material: "3層 GORE-TEX 防風防水", description_zh: "頂級機能防水外套，全壓膠車縫，可拆連帽。", images: buildGallery("jacket", 0), sizes: ["S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top, is_preorder: true, available_date: "2026-03-15" },
+      { id: "prod_009", name_en: "MOTO Leather Jacket", name_zh: "MOTO 機車皮外套", category: "jackets", price: 5880, compare_price: 8232, style_tags: ["Dark", "Punk"], material: "頭層牛皮", description_zh: "經典騎士機車皮衣，金屬拉鍊，肩部立體剪裁。", images: buildGallery("jacket", 3), sizes: ["S", "M", "L", "XL", "XXL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_019", name_en: "PILOT MA-1 Bomber", name_zh: "PILOT MA-1 飛行外套", category: "jackets", price: 3680, compare_price: 4784, style_tags: ["Street", "Cargo"], material: "尼龍表布 / 聚酯內裏 鋪棉", description_zh: "經典 MA-1 飛行外套版型，橘色內裏，袖袋設計，街頭百搭。", images: buildGallery("jacket", 5), sizes: ["S", "M", "L", "XL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_020", name_en: "DENIM Trucker Jacket", name_zh: "DENIM 復古丹寧外套", category: "jackets", price: 2880, compare_price: 3744, style_tags: ["Y2K", "Street"], material: "13.5oz 重磅丹寧", description_zh: "經典 Type-III 牛仔外套，做舊水洗，胸前雙口袋，百年不退潮款式。", images: buildGallery("jacket", 6), sizes: ["S", "M", "L", "XL"], size_chart: SIZE_CHARTS.top },
+      { id: "prod_010", name_en: "PHANTOM Crossbody", name_zh: "PHANTOM 機能斜背包", category: "bags", price: 2880, compare_price: 3744, style_tags: ["Techwear", "Cyber"], material: "1000D Cordura 尼龍", description_zh: "機能斜背包，多隔層設計，YKK 拉鍊，防潑水。", images: buildGallery("bag", 0), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_011", name_en: "VOID Tote Bag", name_zh: "VOID 暗黑托特包", category: "bags", price: 1980, compare_price: 2574, style_tags: ["Dark", "Minimal"], material: "厚磅帆布 + 真皮提把", description_zh: "極簡風托特包，激光雷射 logo，內襯隔層。", images: buildGallery("bag", 1), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_021", name_en: "URBAN Tactical Backpack", name_zh: "URBAN 戰術後背包", category: "bags", price: 3480, compare_price: 4524, style_tags: ["Techwear", "Cargo"], material: "1680D 彈道尼龍", description_zh: "都會通勤戰術後背包，主袋 25L，15吋筆電隔層，可掛載擴充模組。", images: buildGallery("bag", 2), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_022", name_en: "MINI Shoulder Pouch", name_zh: "MINI 小型側肩包", category: "bags", price: 1280, compare_price: 1664, style_tags: ["Minimal", "Korean"], material: "頭層牛皮 / 義大利進口", description_zh: "迷你尺寸真皮側肩包，簡約鈕扣設計，內附手機與卡夾隔層。", images: buildGallery("bag", 4), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_003", name_en: "NEO TOKYO Snapback Cap", name_zh: "NEO TOKYO 機能平簷帽", category: "jewelry", price: 1980, compare_price: 2574, style_tags: ["Techwear", "Cyber"], material: "聚酯纖維機能帽料", description_zh: "賽博龐克風平簷帽，反光螢光刺繡 Logo，六片式結構帽身。", images: buildGallery("cap", 0), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_012", name_en: "VOID Silver Chain", name_zh: "VOID 銀色項鏈", category: "jewelry", price: 1880, compare_price: 2632, style_tags: ["Dark", "Punk"], material: "925 純銀", description_zh: "粗版古巴鏈設計，啞光霧面處理。", images: buildGallery("jewelry", 0), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_023", name_en: "VINTAGE Trucker Cap", name_zh: "VINTAGE 復古卡車帽", category: "jewelry", price: 1280, compare_price: 1664, style_tags: ["Y2K", "Street"], material: "前片棉布 / 後片透氣網眼布", description_zh: "復古卡車帽款，前片棉質繡標，後片透氣網眼，五片式可調尺寸結構。", images: buildGallery("cap", 4), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory },
+      { id: "prod_024", name_en: "STEALTH Beanie", name_zh: "STEALTH 針織毛帽", category: "jewelry", price: 880, compare_price: 1144, style_tags: ["Minimal", "Street"], material: "100% 美麗諾羊毛", description_zh: "極簡羅紋針織毛帽，雙層厚編織，保暖貼合，純色細小織標。", images: buildGallery("cap", 6), sizes: ["One Size"], size_chart: SIZE_CHARTS.accessory }
+    ];
+
+    const STYLE_TAGS = {
+      Street: { zh: "街頭" }, Oversized: { zh: "寬鬆" }, Dark: { zh: "暗黑" },
+      Techwear: { zh: "機能風" }, Cyber: { zh: "賽博" }, Cargo: { zh: "工裝" },
+      Minimal: { zh: "極簡" }, Y2K: { zh: "Y2K 復古" }, Punk: { zh: "龐克" }, Korean: { zh: "韓系" }
+    };
+    const CATEGORIES = { all: { zh: "全部商品" }, shirts: { zh: "上衣" }, pants: { zh: "褲子" }, hoodies: { zh: "連帽衫" }, jackets: { zh: "外套" }, bags: { zh: "包包" }, jewelry: { zh: "配飾" } };
+    const DISCOUNT_CODES = {
+      WELCOME10: { code: "WELCOME10", type: "percent", value: 10, max: 500, description: "新會員首單 9 折 (上限 NT$ 500)" },
+      SAVE300: { code: "SAVE300", type: "fixed", value: 300, min: 3000, description: "滿 NT$ 3,000 折 NT$ 300" },
+      VIP500: { code: "VIP500", type: "fixed", value: 500, min: 5000, description: "滿 NT$ 5,000 折 NT$ 500" },
+      FREESHIP: { code: "FREESHIP", type: "free_shipping", value: 150, description: "免運費 (抵扣 NT$ 150)" }
+    };
+
+    const MEMBERSHIP_TIERS = [
+      { id: 'star', name: '星星會員', min: 0, discount: 0, benefits: ['生日專屬優惠券', '基本售後服務'], color: 'text-amber-500' },
+      { id: 'silver', name: '銀星專屬會員', min: 5000, discount: 5, benefits: ['全站訂單 95 折', '生日專屬禮品', '優先配送權'], color: 'text-gray-400' },
+      { id: 'gold', name: '金星尊榮會員', min: 15000, discount: 10, benefits: ['全站訂單 9 折', '無限次免運費', '專屬客服通道', '新品預購優先權'], color: 'text-yellow-600' },
+      { id: 'diamond', name: '鑽石巔峰會員', min: 30000, discount: 15, benefits: ['全站訂單 85 折', '無限次免運費', '季度新品禮盒', '受邀參加實體品牌宴會'], color: 'text-cyan-500' }
+    ];
+
+    let AppState = { currentPage: 'home', cat: 'all', user: null, cart: [], wishlist: [], orders: [], discount: null, searchQuery: '' };
+
+    function save() { localStorage.setItem('trendy_v2_state', JSON.stringify({ user: AppState.user, cart: AppState.cart, wishlist: AppState.wishlist, orders: AppState.orders })); }
+    function load() { const s = localStorage.getItem('trendy_v2_state'); if (s) { const d = JSON.parse(s); AppState.user = d.user; AppState.cart = d.cart || []; AppState.wishlist = d.wishlist || []; AppState.orders = d.orders || []; } }
+
+    function formatPrice(p) { return `NT$ ${Math.round(p).toLocaleString()}`; }
+    function showToast(msg, type = 'info') { const t = document.getElementById('toast'); const m = document.getElementById('toast-message'); m.textContent = msg; t.style.background = type === 'error' ? 'linear-gradient(to right, #ef4444, #b91c1c)' : type === 'success' ? 'linear-gradient(to right, #10b981, #047857)' : 'rgba(10, 10, 10, 0.85)'; t.classList.remove('hidden'); setTimeout(() => t.classList.add('hidden'), 3500); }
+
+    const Validator = {
+      name: v => v && v.trim().length >= 2,
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      phone: v => /^09\d{8}$/.test(v),
+      address: v => v && v.trim().length >= 5,
+      postal: v => /^\d{3,5}$/.test(v)
+    };
+
+    function getMemberTier() {
+      const totalSpend = AppState.orders.reduce((a, b) => a + b.total, 0);
+      let activeTier = MEMBERSHIP_TIERS[0];
+      for (const tier of MEMBERSHIP_TIERS) {
+        if (totalSpend >= tier.min) activeTier = tier;
+      }
+      return { activeTier, totalSpend };
+    }
+
+    function navigateTo(p, c = 'all') { AppState.currentPage = p; AppState.cat = c; AppState.searchQuery = ''; renderPage(); window.scrollTo(0, 0); }
+    function renderPage() {
+      const el = document.getElementById('app-content'); let h = '';
+      switch (AppState.currentPage) {
+        case 'home': h = renderHome(); break;
+        case 'shop': h = renderShop(); break;
+        case 'preorder': h = renderPreorder(); break;
+        case 'checkout': h = renderCheckout(); break;
+        case 'account': h = renderAccount(); break;
+        case 'order-confirmed': h = renderConfirmed(); break;
+        default: h = renderHome();
+      }
+      el.innerHTML = h; lucide.createIcons();
+    }
+
+    function renderHome() {
+      const hot = PRODUCTS.slice(0, 4);
+      return `
+      <section class="relative h-[90vh] overflow-hidden flex items-center justify-center grain text-center px-4">
+        <div class="absolute inset-0 z-0"><img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1800&q=80" class="w-full h-full object-cover opacity-10"></div>
+        <div class="relative z-10 space-y-8 fade-up">
+          <p class="font-mono text-xs uppercase tracking-[0.5em] text-gray-500 italic">官方單機獨立版 Official Standalone</p>
+          <h1 class="font-display text-7xl md:text-9xl tracking-[ -0.05em] uppercase italic">TRENDY<br>潮流系列</h1>
+          <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">定義您的街頭語彙。結合極簡美學與智慧科技，為您量身打造專屬風格。</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4 pt-10">
+            <button onclick="navigateTo('shop')" class="bg-black text-white px-16 py-6 font-display text-xl uppercase tracking-widest hover:bg-gray-800 transition shadow-2xl italic">探索全部系列</button>
+            <button onclick="openRecommendModal()" class="border-2 border-black px-16 py-6 font-display text-xl uppercase tracking-widest hover:bg-black hover:text-white transition italic">智慧服飾推薦</button>
+          </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 bounce"><i data-lucide="chevron-down" class="w-8 h-8 opacity-20"></i></div>
+      </section>
+      <section class="py-32 max-w-[1600px] mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div><h2 class="font-display text-5xl uppercase mb-2 italic">本季熱選分析</h2><p class="font-mono text-xs text-gray-400 uppercase tracking-widest">熱門趨勢：根據模擬銷售數據排列</p></div>
+          <button onclick="navigateTo('shop')" class="group flex items-center gap-2 font-mono text-xs uppercase tracking-widest hover:opacity-60 transition">查看全部商品系列 <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i></button>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">${hot.map(p => renderCard(p)).join('')}</div>
+      </section>
+      <section class="bg-black text-white py-40 overflow-hidden relative">
+        <div class="marquee-track whitespace-nowrap"><div class="inline-block text-[15vw] font-display uppercase tracking-tighter opacity-10 px-4 italic">極簡 街頭 機能風 Minimal Street Techwear</div><div class="inline-block text-[15vw] font-display uppercase tracking-tighter opacity-10 px-4 italic">極簡 街頭 機能風 Minimal Street Techwear</div></div>
+        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div class="max-w-3xl space-y-6">
+            <h3 class="font-display text-4xl md:text-6xl uppercase italic">預購專區現已開啟</h3>
+            <p class="font-mono text-sm tracking-widest text-gray-400 font-bold uppercase">獨家優先預購計畫．掌握潮流脈動</p>
+            <button onclick="navigateTo('preorder')" class="bg-white text-black px-12 py-4 font-display uppercase tracking-widest hover:opacity-80 transition italic">立即進入預購</button>
+          </div>
+        </div>
+      </section>
+      `;
+    }
+
+    function renderShop() {
+      let list = AppState.cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === AppState.cat);
+      if (AppState.searchQuery) {
+        const q = AppState.searchQuery.toLowerCase();
+        list = PRODUCTS.filter(p => p.name_zh.toLowerCase().includes(q) || p.name_en.toLowerCase().includes(q) || p.style_tags.some(t => t.toLowerCase().includes(q)));
+      }
+      return `
+      <section class="py-24 max-w-[1600px] mx-auto px-4">
+        <div class="mb-20 space-y-4">
+          <h1 class="font-display text-6xl uppercase tracking-tighter italic">${AppState.searchQuery ? `搜尋結果: ${AppState.searchQuery}` : CATEGORIES[AppState.cat].zh}</h1>
+          <p class="font-mono text-xs text-gray-400 uppercase tracking-widest font-bold">${list.length} 件精選潮流單品</p>
+        </div>
+        <div class="flex flex-wrap gap-3 mb-16 border-b border-black/5 pb-10">
+          ${Object.entries(CATEGORIES).map(([k, v]) => `<button onclick="navigateTo('shop','${k}')" class="px-8 py-3 font-mono text-xs uppercase tracking-widest transition-all italic font-bold ${AppState.cat === k ? 'bg-black text-white shadow-xl' : 'border border-black/10 hover:border-black'}">${v.zh}</button>`).join('')}
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 gap-y-20">${list.length ? list.map(p => renderCard(p)).join('') : '<div class="col-span-full py-40 text-center font-mono opacity-20 text-3xl italic">無相符搜尋商品</div>'}</div>
+      </section>`;
+    }
+
+    function renderPreorder() {
+      const list = PRODUCTS.filter(p => p.is_preorder);
+      return `<section class="py-24 max-w-[1600px] mx-auto px-4"><div class="mb-20"><h1 class="font-display text-6xl uppercase tracking-tighter accent-amber italic">預購專區</h1><p class="font-mono text-xs text-gray-500 mt-4 uppercase tracking-widest font-bold">獨家優先獲取計畫 Exclusive Early Access</p></div><div class="grid grid-cols-2 lg:grid-cols-4 gap-12">${list.map(p => renderCard(p)).join('')}</div></section>`;
+    }
+
+    function renderCard(p) {
+      const isW = AppState.wishlist.includes(p.id);
+      return `
+      <div class="group relative">
+        <div class="aspect-[3/4] overflow-hidden bg-gray-50 mb-6 relative">
+          <img src="${p.images.main}" class="w-full h-full object-cover img-zoom">
+          <div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform bg-gradient-to-t from-black/60 to-transparent">
+            <button onclick="openModal('${p.id}')" class="w-full bg-white text-black py-4 font-display text-xs uppercase tracking-widest hover:bg-black hover:text-white transition italic font-bold">快速商品查看</button>
+          </div>
+          <button onclick="event.stopPropagation();toggleWish('${p.id}')" title="加入願望清單" class="absolute top-4 right-4 p-3 glass rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-90 shadow-md">
+            <i data-lucide="heart" class="w-5 h-5 ${isW ? 'fill-red-500 stroke-red-500' : 'text-black'}"></i>
+          </button>
+          ${p.is_preorder ? '<span class="absolute top-4 left-4 preorder-badge shadow-lg font-bold">預購中 PREORDER</span>' : ''}
+          ${p.compare_price ? '<span class="absolute top-4 left-4 bg-red-600 text-white font-mono text-[10px] px-2 py-1 uppercase tracking-tighter shadow-lg font-bold' + (p.is_preorder ? ' mt-10' : '') + '">限時特價 SALE</span>' : ''}
+        </div>
+        <div class="space-y-1">
+          <div class="flex justify-between items-start"><h3 class="font-bold text-lg leading-tight uppercase">${p.name_zh}</h3></div>
+          <p class="text-xs text-gray-400 font-mono tracking-wide uppercase">${p.name_en}</p>
+          <div class="flex items-baseline gap-3 pt-2">
+            <p class="font-display text-2xl tracking-tighter">${formatPrice(p.price)}</p>
+            ${p.compare_price ? `<p class="text-sm text-gray-300 line-through font-mono italic">${formatPrice(p.compare_price)}</p>` : ''}
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function renderCheckout() {
+      if (!AppState.user) { showToast('請先登入會員以進行結帳', 'error'); navigateTo('home'); return ''; }
+      if (!AppState.cart.length) { showToast('購物車內目前沒有商品', 'error'); navigateTo('shop'); return ''; }
+
+      const sub = AppState.cart.reduce((a, b) => a + (PRODUCTS.find(p => p.id === b.id).price * b.qty), 0);
+      const ship = sub >= 2000 ? 0 : 150;
+
+      let disAmt = 0;
+      const d = AppState.discount;
+      if (d) {
+        if (d.type === 'percent') disAmt = Math.min(sub * (d.value / 100), d.max || Infinity);
+        else if (d.type === 'fixed') disAmt = Math.min(d.value, sub);
+      }
+      const shipDis = (d && d.type === 'free_shipping') ? Math.min(ship, 150) : 0;
+      const tot = Math.max(0, sub - disAmt + ship - shipDis);
+
+      return `
+      <section class="py-24 max-w-7xl mx-auto px-4"><h1 class="font-display text-6xl mb-16 uppercase border-b-4 border-black pb-8 italic tracking-tighter">結帳中心 Checkout</h1><div class="grid lg:grid-cols-2 gap-20">
+        <div class="space-y-14">
+          <div><h3 class="font-display text-2xl mb-8 flex items-center gap-4 italic"><span class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center font-mono text-sm leading-none NOT-italic">01</span> 配送資訊匯總</h3><div class="space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">收件人姓名 Receiver*</label><input id="co-name" placeholder="真實姓名" class="w-full border-b border-black/20 p-2 focus:border-black outline-none transition uppercase font-bold"></div>
+              <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">電子郵件 Email*</label><input id="co-email" value="${AppState.user.email}" class="w-full border-b border-black/20 p-2 focus:border-black outline-none transition"></div>
+            </div>
+            <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">聯絡電話 Phone (09xxxxxxxx)*</label><input id="co-phone" placeholder="0912345678" class="w-full border-b border-black/20 p-2 focus:border-black outline-none transition font-mono"></div>
+            <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">詳細配送地址 Shipping Address*</label><input id="co-addr" placeholder="城市、街道與門牌號碼" class="w-full border-b border-black/20 p-2 focus:border-black outline-none transition"></div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">縣市地區 City*</label><input id="co-city" class="w-full border-b border-black/20 p-2 focus:border-black outline-none transition"></div>
+              <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">郵遞區號 Postal Code (3或5位)*</label><input id="co-postal" class="w-full border-b border-black/20 p-2 focus:border-black outline-none transition font-mono"></div>
+            </div>
+            <div class="space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">指定配送日期 (非必填)</label><input type="date" id="co-date" class="w-full border-b border-black/20 p-2 font-mono" min="${new Date().toISOString().split('T')[0]}"></div>
+          </div></div>
+          <div><h3 class="font-display text-2xl mb-8 flex items-center gap-4 italic"><span class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center font-mono text-sm leading-none NOT-italic">02</span> 優惠折扣使用</h3><div class="flex gap-4 items-end"><div class="flex-1 space-y-1"><label class="text-[10px] font-mono text-gray-400 uppercase font-bold">輸入優惠代碼 Discount Code</label><input id="co-dis-in" placeholder="輸入代碼，例如: SAVE300" class="w-full border-b border-black/20 p-2 uppercase font-mono tracking-widest focus:border-black outline-none"></div><button onclick="applyDis()" class="bg-black text-white px-10 py-3 font-mono text-xs uppercase tracking-widest hover:opacity-80 font-bold">套用代碼</button></div><p id="dis-msg" class="text-[10px] mt-3 font-mono uppercase"></p></div>
+          <button onclick="submitOrder()" class="w-full bg-black text-white py-8 font-display text-3xl uppercase tracking-[0.3em] hover:bg-gray-800 transition shadow-2xl italic tracking-tighter">確認訂單並送出</button>
+        </div>
+        <div class="glass-card p-10 rounded-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 rotate-12 opacity-5 pointer-events-none"><i data-lucide="shopping-cart" class="w-64 h-64"></i></div>
+          <h3 class="font-display text-3xl mb-10 border-b border-black/10 pb-6 uppercase italic tracking-tighter">訂單摘要總計</h3>
+          <div class="space-y-8 mb-12 max-h-[500px] overflow-y-auto pr-4 modal-scroll">${AppState.cart.map(it => {
+        const p = PRODUCTS.find(x => x.id === it.id);
+        return `<div class="flex gap-6"><div class="w-24 h-32 bg-gray-50 flex-shrink-0 rounded-lg overflow-hidden border border-black/5 shadow-sm"><img src="${p.images.main}" class="w-full h-full object-cover"></div><div class="flex-1 pt-1"><div class="flex justify-between items-start"><h4 class="font-bold text-sm leading-tight uppercase max-w-[150px]">${p.name_zh}</h4><p class="font-mono text-sm font-bold">${formatPrice(p.price * it.qty)}</p></div><p class="text-[10px] text-gray-400 uppercase font-mono mt-1 font-bold">${it.size} x ${it.qty}</p>${p.is_preorder ? `<div class="mt-4 flex items-center gap-2 text-[9px] font-mono text-amber-700 bg-amber-50 px-2 py-1 rounded w-fit uppercase font-bold"><i data-lucide="clock" class="w-3 h-3"></i> 預購品：預計到貨 ${p.available_date}</div>` : ''}</div></div>`;
+      }).join('')}</div>
+          <div class="border-t border-black/10 pt-10 space-y-5">
+            <div class="flex justify-between text-sm uppercase tracking-widest font-mono font-bold"><span>商品小計 Subtotal</span><span class="font-bold text-lg">${formatPrice(sub)}</span></div>
+            ${disAmt > 0 ? `<div class="flex justify-between text-sm uppercase tracking-widest font-mono text-green-600 font-bold"><span>代碼折扣 (${AppState.discount.code})</span><span class="font-bold text-lg">-${formatPrice(disAmt)}</span></div>` : ''}
+            <div class="flex justify-between text-sm uppercase tracking-widest font-mono font-bold"><span>運費金額 Shipping</span><span class="font-bold text-lg ${ship === 0 ? 'text-green-600' : ''}">${ship === 0 ? '免運費 FREE' : formatPrice(ship)}</span></div>
+            ${shipDis > 0 ? `<div class="flex justify-between text-sm uppercase tracking-widest font-mono text-green-600 font-bold"><span>免運費折扣</span><span class="font-bold text-lg">-${formatPrice(shipDis)}</span></div>` : ''}
+            <div class="flex justify-between text-5xl font-display pt-10 border-t-2 border-black uppercase italic tracking-tighter"><span>結帳總額 Total</span><span>${formatPrice(tot)}</span></div>
+          </div>
+        </div>
+      </div></section>`;
+    }
+
+    function applyDis() {
+      const v = document.getElementById('co-dis-in').value.trim().toUpperCase();
+      const code = DISCOUNT_CODES[v]; const m = document.getElementById('dis-msg');
+      if (!code) { m.textContent = '無效的優惠代碼 INVALID CODE'; m.className = 'text-[10px] mt-3 font-mono uppercase text-red-600 font-bold'; return; }
+      const sub = AppState.cart.reduce((a, b) => a + (PRODUCTS.find(p => p.id === b.id).price * b.qty), 0);
+      if (code.min && sub < code.min) { m.textContent = `不符合門檻：低消需達 NT$ ${code.min.toLocaleString()}`; m.className = 'text-[10px] mt-3 font-mono uppercase text-red-600 font-bold'; return; }
+      AppState.discount = code; showToast(`優惠代碼 ${v} 套用成功`, 'success'); renderPage();
+    }
+
+    function submitOrder() {
+      const n = document.getElementById('co-name').value, e = document.getElementById('co-email').value, p = document.getElementById('co-phone').value, a = document.getElementById('co-addr').value, c = document.getElementById('co-city').value, po = document.getElementById('co-postal').value;
+      if (!Validator.name(n) || !Validator.email(e) || !Validator.phone(p) || !Validator.address(a) || !Validator.postal(po)) { showToast('請填寫完整正確的配送資訊以完成下單', 'error'); return; }
+      const sub = AppState.cart.reduce((a, b) => a + (PRODUCTS.find(p => p.id === b.id).price * b.qty), 0);
+      const disAmt = AppState.discount ? (AppState.discount.type === 'percent' ? Math.min(sub * (AppState.discount.value / 100), AppState.discount.max || Infinity) : AppState.discount.value) : 0;
+      const ship = sub >= 2000 ? 0 : 150; const shipDis = (AppState.discount && AppState.discount.type === 'free_shipping') ? Math.min(ship, 150) : 0;
+      AppState.orders.push({ id: 'O' + Date.now(), total: Math.max(0, sub - disAmt + ship - shipDis), items: [...AppState.cart], createdAt: new Date() });
+      AppState.cart = []; AppState.discount = null; save(); navigateTo('order-confirmed');
+    }
+
+    function renderAccount() {
+      if (!AppState.user) return `<section class="py-48 text-center px-4"><div class="max-w-md mx-auto space-y-8"><h1 class="font-display text-7xl uppercase italic tracking-tighter">會員登入</h1><p class="text-gray-400 font-mono font-bold">請登入您的 TRENDY 官網帳號以查看歷史記錄與基本資料。</p><button onclick="toggleAuth()" class="w-full bg-black text-white py-6 font-display text-xl uppercase tracking-widest shadow-xl">登入 / 立即註冊</button></div></section>`;
+      const ords = AppState.orders.slice().reverse();
+      const { activeTier, totalSpend } = getMemberTier();
+      const nextTier = MEMBERSHIP_TIERS[MEMBERSHIP_TIERS.indexOf(activeTier) + 1];
+
+      return `
+      <section class="py-24 max-w-[1600px] mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div><h1 class="font-display text-7xl uppercase italic tracking-tighter">我的個人帳戶</h1><p class="font-mono text-xs text-gray-400 uppercase tracking-widest mt-4 font-bold">歡迎回來, ${AppState.user.name} 會員</p></div>
+          <button onclick="logout()" class="px-10 py-4 border-2 border-red-200 text-red-600 font-mono text-xs uppercase tracking-widest hover:bg-red-50 transition font-bold">安全登出帳號</button>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-20">
+          <div class="lg:col-span-4 space-y-8">
+            <div class="glass-card p-8 rounded-2xl space-y-6 shadow-sm">
+              <h3 class="font-display text-xl uppercase border-b border-black/10 pb-4 italic">個人基本資料</h3>
+              <div class="space-y-1"><p class="text-[10px] font-mono text-gray-400 uppercase font-bold">會員姓名 Full Name</p><p class="font-bold text-lg">${AppState.user.name}</p></div>
+              <div class="space-y-1"><p class="text-[10px] font-mono text-gray-400 uppercase font-bold">電子郵件 Email Info</p><p class="font-bold text-lg">${AppState.user.email}</p></div>
+              <button class="w-full py-3 bg-black/5 hover:bg-black/10 font-mono text-xs uppercase transition font-bold">編輯個人基本資料</button>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-2xl space-y-6 shadow-tiny">
+              <h3 class="font-display text-xl uppercase border-b border-black/10 pb-4 italic">專屬會員權益</h3>
+              <div class="flex items-center gap-4 text-sm font-mono font-bold"><i data-lucide="zap" class="w-5 h-5 ${activeTier.color}"></i> 會員級別: TRENDY ${activeTier.name}</div>
+              <div class="flex items-center gap-4 text-sm font-mono font-bold"><i data-lucide="award" class="w-5 h-5 text-blue-500"></i> 累計消費總額: ${formatPrice(totalSpend)}</div>
+              <div class="pt-4 border-t border-black/5">
+                <p class="text-[10px] font-mono uppercase text-gray-400 mb-2 font-bold">當前享有福利:</p>
+                <ul class="text-xs space-y-1 font-bold">
+                  ${activeTier.benefits.map(b => `<li class="flex items-center gap-2 text-green-600"><i data-lucide="check-circle-2" class="w-3 h-3"></i> ${b}</li>`).join('')}
+                </ul>
+              </div>
+              ${nextTier ? `<p class="text-[10px] font-mono text-amber-600 mt-4 font-bold">再消費 ${formatPrice(nextTier.min - totalSpend)} 即可升級為 ${nextTier.name}</p>` : '<p class="text-[10px] font-mono text-cyan-600 mt-4 font-bold">您已達成最高等級鑽石會員</p>'}
+              <button onclick="openTierRules()" class="w-full py-3 border border-black/10 text-[10px] font-mono uppercase hover:bg-white transition font-bold mt-2">查看會員等級規範與獎勵</button>
+            </div>
+          </div>
+          <div class="lg:col-span-8 space-y-10">
+            <div class="flex justify-between items-center"><h3 class="font-display text-3xl uppercase italic tracking-tighter">內部訂單歷史記錄 (${ords.length})</h3>${ords.length ? `<button class="text-xs font-mono underline hover:text-gray-400 font-bold">匯出 CSV 訂單報表</button>` : ''}</div>
+            <div class="space-y-8">${ords.length ? ords.map(o => `
+              <div class="border border-black/10 p-10 rounded-2xl hover:border-black transition-colors group shadow-sm">
+                <div class="flex justify-between items-center mb-8"><span class="font-mono text-xs text-gray-400 uppercase font-bold">ID: ${o.id}</span><span class="text-[10px] bg-green-50 text-green-700 font-mono px-3 py-1 rounded-full uppercase font-bold">已出貨 SHIPPED</span></div>
+                <div class="flex justify-between items-end"><div><p class="text-[10px] text-gray-400 font-mono uppercase mb-1 font-bold">訂單創立於: ${new Date(o.createdAt).toLocaleString('zh-TW')}</p><p class="text-5xl font-display tracking-tighter italic">${formatPrice(o.total)}</p></div><button onclick="showOrderDetail('${o.id}')" class="bg-black text-white px-8 py-3 font-mono text-[10px] uppercase opacity-0 group-hover:opacity-100 transition shadow-xl font-bold">查詢詳細訂單內容</button></div>
+              </div>`).join('') : '<div class="py-40 text-center border-2 border-dashed border-black/10 rounded-3xl"><p class="font-mono text-gray-300 italic text-2xl font-bold">目前尚無任何消費記錄</p><button onclick="navigateTo(\'shop\')" class="mt-8 px-12 py-4 bg-black text-white font-display uppercase tracking-widest shadow-xl italic font-bold">立即前往探索商品系列</button></div>'}</div>
+          </div>
+        </div>
+      </section>`;
+    }
+    function renderConfirmed() { return `<section class="py-48 text-center px-4 fade-up"><div class="w-32 h-32 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-10 shadow-inner"><i data-lucide="check" class="w-16 h-16"></i></div><h1 class="font-display text-7xl md:text-8xl mb-6 uppercase tracking-tighter italic">訂購成功！</h1><p class="text-gray-400 mb-16 max-w-xl mx-auto leading-relaxed text-xl font-bold">我們已接收您的訂單，詳情通知已發送至您的電子信箱。商品預計於 1-2 工作天內出貨。感謝您購買 TRENDY 系列單品。</p><div class="flex flex-col sm:flex-row gap-6 justify-center"><button onclick="navigateTo('home')" class="bg-black text-white px-20 py-6 font-display text-xl uppercase tracking-widest shadow-2xl hover:bg-gray-800 transition italic">返回官方首頁</button><button onclick="navigateTo('account')" class="border-2 border-black px-20 py-6 font-display text-xl uppercase tracking-widest hover:bg-black hover:text-white transition italic">查看我的訂單紀錄</button></div></section>`; }
+
+    function openModal(id) {
+      const p = PRODUCTS.find(x => x.id === id); if (!p) return; AppState.currentP = p; selectedSize = null;
+      document.getElementById('product-modal-content').innerHTML = `
+      <div class="p-8 lg:p-16"><div class="grid lg:grid-cols-2 gap-16">
+        <div class="space-y-6">
+          <div class="aspect-[3/4] overflow-hidden bg-gray-50 rounded-2xl shadow-xl relative">
+            <img id="modal-img" src="${p.images.main}" class="w-full h-full object-cover">
+            ${p.compare_price ? `<span class="absolute top-8 left-8 bg-black text-white px-4 py-2 font-display text-sm font-bold">SALE 特價</span>` : ''}
+          </div>
+          <div class="grid grid-cols-5 gap-3">${Object.values(p.images).map((u, idx) => `<img src="${u}" onclick="document.getElementById('modal-img').src='${u}'" class="aspect-square object-cover cursor-pointer rounded-lg hover:opacity-70 transition border border-black/5 shadow-tiny">`).join('')}</div>
+        </div>
+        <div class="space-y-12">
+          <div class="space-y-6">
+            <div class="flex justify-between items-start"><div class="space-y-2"><h2 class="font-display text-5xl uppercase tracking-tight leading-[0.9] italic">${p.name_zh}</h2><p class="text-gray-400 font-mono text-sm tracking-widest capitalize font-bold">${p.name_en}</p></div><button onclick="closeModal()" title="關閉" class="hover:opacity-40 transition"><i data-lucide="x" class="w-10 h-10"></i></button></div>
+            <div class="flex items-baseline gap-6"><p class="text-6xl font-display tracking-tighter italic">${formatPrice(p.price)}</p>${p.compare_price ? `<p class="text-2xl text-gray-300 line-through font-mono italic">${formatPrice(p.compare_price)}</p>` : ''}</div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-2">
+              ${p.style_tags.map(t => `<span class="bg-black text-white px-3 py-1 font-mono text-[10px] uppercase tracking-widest font-bold">${t}</span>`).join('')}
+              ${p.is_preorder ? `<span class="bg-amber-600 text-white px-3 py-1 font-mono text-[10px] uppercase tracking-widest font-bold">預購商品項目</span>` : ''}
+            </div>
+            <p class="text-gray-600 leading-relaxed text-lg font-medium">${p.description_zh}</p>
+            <p class="text-sm font-mono text-gray-400 font-bold uppercase"><span class="italic">Material:</span> 商品材質成分 - ${p.material}</p>
+          </div>
+          <div class="space-y-6">
+            <div class="flex justify-between items-end"><h3 class="font-display text-sm uppercase tracking-widest font-bold">請選擇尺寸 Select Size</h3><button class="font-mono text-[10px] uppercase underline text-gray-400 font-bold" onclick="openInfoModal('size')">尺寸測量指南 Guide</button></div>
+            <div class="flex flex-wrap gap-3">${p.sizes.map(s => `<button onclick="selSize('${s}', this)" class="size-opt border-2 border-black/10 rounded-xl font-display text-lg hover:border-black transition-all shadow-tiny">${s}</button>`).join('')}</div>
+          </div>
+          <div class="flex gap-4 pt-10">
+            <button onclick="addCart()" class="flex-1 bg-black text-white py-6 font-display text-2xl uppercase tracking-widest hover:bg-gray-800 transition shadow-2xl flex items-center justify-center gap-4 italic tracking-tighter"><i data-lucide="shopping-bag" class="w-6 h-6"></i> 放入購物車系統</button>
+            <button onclick="toggleWish('${p.id}')" title="加入或取消清單" class="px-8 border-2 border-black rounded-2xl hover:bg-black hover:text-white transition"><i data-lucide="heart" class="w-6 h-6"></i></button>
+          </div>
+        </div>
+      </div></div>`;
+      document.getElementById('product-modal').classList.remove('hidden'); lucide.createIcons();
+    }
+    function closeModal() { document.getElementById('product-modal').classList.add('hidden'); }
+    function selSize(s, btn) { selectedSize = s; document.querySelectorAll('.size-opt').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
+    function addCart() { if (!selectedSize) return showToast('請務必先選擇一個尺寸', 'error'); const ex = AppState.cart.find(i => i.id === AppState.currentP.id && i.size === selectedSize); if (ex) ex.qty++; else AppState.cart.push({ id: AppState.currentP.id, size: selectedSize, qty: 1 }); save(); updateUI(); showToast(`已將 ${AppState.currentP.name_zh} (${selectedSize}) 放入購物車`, 'success'); }
+
+    function showOrderDetail(id) {
+      const o = AppState.orders.find(x => x.id === id);
+      if (!o) return;
+      document.getElementById('product-modal-content').innerHTML = `
+      <div class="p-12 lg:p-20">
+        <div class="flex justify-between items-center mb-12 border-b-2 border-black pb-8">
+          <div>
+            <h2 class="font-display text-4xl uppercase italic tracking-tighter">訂單詳細內容 Order Detail</h2>
+            <p class="font-mono text-[10px] text-gray-400 mt-2 tracking-widest uppercase font-bold">訂單編號: ${o.id} | 下單時間: ${new Date(o.createdAt).toLocaleString('zh-TW')}</p>
+          </div>
+          <button onclick="closeModal()"><i data-lucide="x" class="w-10 h-10"></i></button>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-8">
+            <div class="space-y-6">
+              ${o.items.map(it => {
+        const p = PRODUCTS.find(x => x.id === it.id);
+        return `
+                <div class="flex gap-8 items-center border-b border-black/5 pb-6">
+                  <div class="w-24 h-32 bg-gray-50 rounded-xl overflow-hidden border border-black/5 flex-shrink-0"><img src="${p.images.main}" class="w-full h-full object-cover"></div>
+                  <div class="flex-1">
+                    <h4 class="font-display text-xl uppercase italic tracking-tighter">${p.name_zh}</h4>
+                    <p class="text-[10px] font-mono text-gray-400 uppercase font-bold">${p.name_en}</p>
+                    <div class="flex gap-4 mt-1 font-mono text-sm"><span>尺寸: ${it.size}</span><span>數量: ${it.qty}</span></div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-display text-2xl tracking-tighter italic">${formatPrice(p.price * it.qty)}</p>
+                    <p class="text-[10px] font-mono text-gray-400 font-bold">${formatPrice(p.price)} / 件</p>
+                  </div>
+                </div>`;
+      }).join('')}
+            </div>
+          </div>
+          <div class="lg:col-span-4">
+            <div class="bg-gray-50 p-10 rounded-2xl space-y-6 sticky top-0 shadow-tiny">
+              <h3 class="font-display text-xl uppercase italic border-b border-black/10 pb-4">訂單結算資訊</h3>
+              <div class="space-y-4 font-mono text-xs font-bold">
+                <div class="flex justify-between"><span>配送狀態</span><span class="text-green-600">已出貨 (黑貓宅配)</span></div>
+                <div class="flex justify-between"><span>付款方式</span><span>線上信用卡</span></div>
+                <div class="flex justify-between"><span>收件人姓名</span><span>${AppState.user.name}</span></div>
+                <div class="pt-4 border-t border-black/10 space-y-2">
+                  <div class="flex justify-between text-lg font-display tracking-tighter italic"><span>實付總額</span><span>${formatPrice(o.total)}</span></div>
+                </div>
+              </div>
+              <button onclick="window.print()" class="w-full py-4 bg-black text-white font-mono text-[10px] uppercase tracking-widest mt-6 shadow-xl font-bold">列印電子發票/收據</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+      document.getElementById('product-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function openTierRules() {
+      document.getElementById('product-modal-content').innerHTML = `
+      <div class="p-12 lg:p-20">
+        <div class="flex justify-between items-center mb-16 border-b-2 border-black pb-8">
+          <h2 class="font-display text-4xl uppercase italic tracking-tighter">TRENDY 會員等級制度規範</h2>
+          <button onclick="closeModal()"><i data-lucide="x" class="w-10 h-10"></i></button>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+          ${MEMBERSHIP_TIERS.map(tier => `
+            <div class="glass-card p-10 rounded-3xl flex flex-col items-center text-center space-y-6 shadow-tiny">
+              <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center ${tier.color} shadow-inner"><i data-lucide="${tier.id === 'diamond' ? 'gem' : tier.id === 'gold' ? 'crown' : tier.id === 'silver' ? 'star' : 'zap'}" class="w-10 h-10"></i></div>
+              <div>
+                <h3 class="font-display text-xl uppercase italic tracking-tighter">${tier.name}</h3>
+                <p class="font-mono text-[10px] text-gray-400 mt-2 font-bold">累積消費滿 ${formatPrice(tier.min)}</p>
+              </div>
+              <div class="flex-1 space-y-3 pt-6 border-t border-black/5 w-full">
+                <p class="text-[10px] font-mono uppercase text-gray-500 font-bold">等級專屬獎勵:</p>
+                <ul class="text-xs space-y-2 font-bold">
+                  ${tier.benefits.map(b => `<li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-3 h-3 text-green-500"></i> ${b}</li>`).join('')}
+                </ul>
+              </div>
+            </div>`).join('')}
+        </div>
+        <div class="mt-16 bg-amber-50 p-10 rounded-2xl border border-amber-200">
+          <h4 class="font-display text-lg uppercase italic mb-4 flex items-center gap-3"><i data-lucide="info" class="w-5 h-5"></i> 等級計算細則</h4>
+          <p class="text-sm leading-relaxed text-amber-900 font-medium">1. 會員等級基於帳戶過往「所有已完成訂單」之實付金額加總計算。<br>2. 等級將於訂單狀態更新為「已出貨」後 24 小時內自動升級。<br>3. 折扣優惠不可與部分特定促銷活動之代碼併用。<br>4. 鑽石會員之專屬禮盒將於每季度末自動寄送至預設地址。</p>
+        </div>
+      </div>`;
+      document.getElementById('product-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function toggleAuth() { const m = document.getElementById('auth-modal'); m.classList.toggle('hidden'); if (!m.classList.contains('hidden')) switchToLogin(); }
+    function switchToLogin() { document.getElementById('auth-title').textContent = '官網會員登入'; document.getElementById('login-form').classList.remove('hidden'); document.getElementById('register-form').classList.add('hidden'); }
+    function switchToRegister() { document.getElementById('auth-title').textContent = '新會員帳號註冊'; document.getElementById('login-form').classList.add('hidden'); document.getElementById('register-form').classList.remove('hidden'); }
+    function handleAccountClick() { if (AppState.user) navigateTo('account'); else toggleAuth(); }
+    function handleLogin() { const e = document.getElementById('login-email').value, p = document.getElementById('login-password').value; if (!Validator.email(e)) { showToast('Email 格式不正確', 'error'); return; } const us = JSON.parse(localStorage.getItem('trendy_users') || '[]'); const u = us.find(x => x.email === e && x.password === p); if (!u) return showToast('Email 地址或密碼錯誤', 'error'); AppState.user = { email: e, name: u.name }; save(); showToast(`歡迎回來 TRENDY, ${u.name}`, 'success'); toggleAuth(); renderPage(); }
+    function handleRegister() { const n = document.getElementById('register-name').value, e = document.getElementById('register-email').value, p = document.getElementById('register-password').value; if (!Validator.name(n) || !Validator.email(e) || p.length < 6) return showToast('請填寫完整註冊資料且密碼需 6 位以上', 'error'); const us = JSON.parse(localStorage.getItem('trendy_users') || '[]'); if (us.find(x => x.email === e)) return showToast('此 Email 電子郵件已被註冊過', 'error'); us.push({ email: e, password: p, name: n }); localStorage.setItem('trendy_users', JSON.stringify(us)); AppState.user = { email: e, name: n }; save(); showToast(`註冊帳號成功! 歡迎加入 TRENDY`, 'success'); toggleAuth(); renderPage(); }
+    function logout() { AppState.user = null; save(); navigateTo('home'); }
+
+    function toggleWish(id) { const i = AppState.wishlist.indexOf(id); if (i === -1) { AppState.wishlist.push(id); showToast('商品已成功加入願望清單', 'success'); } else { AppState.wishlist.splice(i, 1); showToast('商品已從願望清單移除'); } save(); updateUI(); }
+    function toggleCart() { const d = document.getElementById('cart-drawer'); d.classList.toggle('hidden'); if (!d.classList.contains('hidden')) renderCart(); }
+    function updateUI() { const c = AppState.cart.reduce((a, b) => a + b.qty, 0); const b = document.getElementById('cart-count'); if (c > 0) { b.textContent = c; b.classList.remove('hidden'); } else b.classList.add('hidden'); const w = AppState.wishlist.length; const wb = document.getElementById('wishlist-count'); if (w > 0) { wb.textContent = w; wb.classList.remove('hidden'); } else wb.classList.add('hidden'); }
+    function renderCart() {
+      const el = document.getElementById('cart-items'); if (!AppState.cart.length) { el.innerHTML = '<div class="text-center py-40 opacity-10 space-y-6"><i data-lucide="shopping-bag" class="w-24 h-24 mx-auto"></i><p class="font-display text-2xl uppercase italic font-bold">購物袋目前是空的 Bag Is Empty</p></div>'; document.getElementById('cart-subtotal').textContent = 'NT$ 0'; lucide.createIcons(); return; }
+      el.innerHTML = AppState.cart.map(it => { const p = PRODUCTS.find(x => x.id === it.id); return `<div class="flex gap-6 group"><div class="w-24 h-32 bg-gray-50 rounded-xl overflow-hidden shadow-sm flex-shrink-0 border border-black/5"><img src="${p.images.main}" class="w-full h-full object-cover"></div><div class="flex-1 space-y-2"><div class="flex justify-between items-start"><h4 class="font-bold uppercase leading-tight max-w-[200px]">${p.name_zh}</h4><button onclick="upCart('${it.id}','${it.size}',0)" title="移除此商品" class="text-red-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="trash-2" class="w-5 h-5"></i></button></div><p class="text-[10px] font-mono text-gray-400 uppercase tracking-widest font-bold">${it.size} x ${it.qty}</p><div class="flex items-center gap-6 pt-2"><div class="flex items-center border border-black/10 rounded-lg overflow-hidden"><button onclick="upCart('${it.id}','${it.size}',${it.qty - 1})" class="px-3 py-1 hover:bg-black/5 font-mono leading-none">-</button><span class="px-4 py-1 font-mono text-sm border-x border-black/10">${it.qty}</span><button onclick="upCart('${it.id}','${it.size}',${it.qty + 1})" class="px-3 py-1 hover:bg-black/5 font-mono leading-none">+</button></div><p class="font-display text-lg tracking-tighter italic font-bold">${formatPrice(p.price * it.qty)}</p></div></div></div>`; }).join('');
+      document.getElementById('cart-subtotal').textContent = formatPrice(AppState.cart.reduce((a, b) => a + (PRODUCTS.find(x => x.id === b.id).price * b.qty), 0)); lucide.createIcons();
+    }
+    function toggleWishlist() { const d = document.getElementById('wishlist-drawer'); d.classList.toggle('hidden'); if (!d.classList.contains('hidden')) renderWishlist(); }
+    function renderWishlist() {
+      const el = document.getElementById('wishlist-items'); if (!AppState.wishlist.length) { el.innerHTML = '<div class="text-center py-40 opacity-10 space-y-6"><i data-lucide="heart" class="w-24 h-24 mx-auto"></i><p class="font-display text-2xl uppercase italic font-bold">清單內目前無收藏商品 Empty</p></div>'; lucide.createIcons(); return; }
+      el.innerHTML = AppState.wishlist.map(id => { const p = PRODUCTS.find(x => x.id === id); return `<div class="flex gap-6 items-center"><div class="w-24 h-28 bg-gray-50 rounded-xl overflow-hidden flex-shrink-0 border border-black/5 shadow-tiny"><img src="${p.images.main}" class="w-full h-full object-cover"></div><div class="flex-1 space-y-1"><h4 class="font-bold uppercase text-sm">${p.name_zh}</h4><p class="font-display text-xl italic tracking-tighter font-bold">${formatPrice(p.price)}</p></div><div class="flex flex-col gap-2"><button onclick="openModal('${p.id}')" title="查看商品詳情" class="bg-black text-white p-3 rounded-xl"><i data-lucide="arrow-right" class="w-4 h-4"></i></button><button onclick="toggleWish('${p.id}');renderWishlist();" title="移除此收藏" class="text-red-500 p-3"><i data-lucide="x" class="w-4 h-4"></i></button></div></div>`; }).join('');
+      lucide.createIcons();
+    }
+    function upCart(id, size, n) { if (n <= 0) AppState.cart = AppState.cart.filter(i => !(i.id === id && i.size === size)); else { const i = AppState.cart.find(x => x.id === id && x.size === size); i.qty = n; } save(); renderCart(); updateUI(); }
+    function proceedToCheckout() { if (!AppState.cart.length) return; if (!AppState.user) { toggleCart(); toggleAuth(); return; } toggleCart(); navigateTo('checkout'); }
+
+    function toggleSearch() { const b = document.getElementById('search-bar'); b.classList.toggle('hidden'); if (!b.classList.contains('hidden')) document.getElementById('search-input').focus(); }
+    function openRecommendModal() {
+      const tags = Object.keys(STYLE_TAGS);
+      document.getElementById('style-tags-container').innerHTML = tags.map(t => `<label class="flex items-center gap-3 px-6 py-3 border border-black/10 rounded-xl cursor-pointer hover:border-black transition active:scale-95 shadow-tiny"><input type="checkbox" name="style-pref" value="${t}" class="hidden peer"><span class="font-mono text-xs uppercase tracking-widest peer-checked:font-bold italic">${STYLE_TAGS[t].zh}</span></label>`).join('');
+      document.getElementById('recommend-modal').classList.remove('hidden'); document.getElementById('recommend-form').classList.remove('hidden'); document.getElementById('recommend-results').classList.add('hidden');
+    }
+    function closeRecommendModal() { document.getElementById('recommend-modal').classList.add('hidden'); }
+    function generateRecommendations() {
+      const h = document.getElementById('rec-height').value, w = document.getElementById('rec-weight').value;
+      if (!h || !w) return showToast('請完整填寫您的身高與體重資料', 'error');
+      const tags = Array.from(document.querySelectorAll('input[name="style-pref"]:checked')).map(i => i.value);
+      const bmi = w / ((h / 100) * (h / 100));
+      const sz = bmi < 18.5 ? 'S' : bmi < 24 ? 'M' : 'L';
+      document.getElementById('recommend-form').classList.add('hidden');
+      const r = document.getElementById('recommend-results'); r.classList.remove('hidden');
+      const matched = tags.length ? PRODUCTS.filter(p => p.style_tags.some(t => tags.includes(t))).slice(0, 4) : PRODUCTS.slice(0, 4);
+      r.innerHTML = `
+        <div class="space-y-12">
+          <div class="bg-gray-50 p-12 rounded-3xl space-y-4 shadow-inner">
+            <h3 class="font-display text-2xl uppercase border-b-2 border-black/10 pb-4 flex items-center gap-4 italic"><i data-lucide="bar-chart-2" class="w-6 h-6"></i> 系統分析診斷報告結果 ANALYSIS</h3>
+            <p class="text-xl leading-relaxed font-medium">基於數據精算分析 (您的 BMI 值: ${bmi.toFixed(1)}), TRENDY 智慧引擎建議您選擇 <span class="font-display text-3xl font-bold underline italic text-black mx-1">${sz} 碼</span> 的單品, 以下是為您個性化推薦的潮流商品：</p>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">${matched.map(p => `<div><div class="aspect-[3/4] bg-gray-50 rounded-xl overflow-hidden mb-4 shadow-sm border border-black/5"><img src="${p.images.main}" class="w-full h-full object-cover"></div><h4 class="text-xs font-bold truncate uppercase">${p.name_zh}</h4><button onclick="openModal('${p.id}');closeRecommendModal();" class="text-[10px] font-mono uppercase underline mt-2 hover:text-gray-400 font-bold italic">查看商品詳情 Detail</button></div>`).join('')}</div>
+          <button onclick="closeRecommendModal()" class="w-full border-2 border-black py-5 font-display text-xl uppercase tracking-widest hover:bg-black hover:text-white transition italic tracking-tighter shadow-xl">返回分析首頁</button>
+        </div>`;
+      lucide.createIcons();
+    }
+    function openInfoModal(k) {
+      const i = {
+        shipping: { t: '官方配送方式說明', e: 'Shipping Policy Reference', b: `<div class="space-y-6"><h4 class="font-bold underline italic">宅配到府 (黑貓/順豐)</h4><p>基本運費 NT$ 150 — 單筆訂單滿 NT$ 2,000 即享免運。下單後 1–3 個工作天內出貨送達。</p><h4 class="font-bold underline italic">超商門市取貨 (7-11/全家)</h4><p>基本運費 NT$ 60 — 單筆訂單滿 NT$ 1,200 即享免運。商品到店後請於 7 天內完成取件以免退回。</p></div>` },
+        returns: { t: '退換貨政策保障', e: 'Returns & Exchanges Protection', b: `<div class="space-y-6"><h4 class="font-bold underline italic">7 天鑑賞期服務</h4><p>依消費者保護法, 商品到貨後 7 天內可線上申請退貨。商品須保持全新未使用、吊牌完整且包裝未損。</p><h4 class="font-bold underline italic">首購換貨免運費</h4><p>若因尺寸不合需更換款式, 首次換貨將由 TRENDY 全額承擔來回運費。</p></div>` },
+        size: { t: '尺寸量測指南表', e: 'Size Measurement Guide', b: `<div class="space-y-6"><h4 class="font-bold underline italic">上衣類單品尺寸 (cm)</h4><p>XS: 64/50 | S: 67/53 | M: 70/56 | L: 73/59 | XL: 76/62</p><h4 class="font-bold underline italic">褲裝類單品尺寸 (英吋/cm)</h4><p>28: 71 | 30: 76 | 32: 81 | 34: 86 | 36: 91</p></div>` },
+        contact: { t: '聯絡我們售後中心', e: 'Contact Customer Center', b: `<div class="space-y-6"><h4 class="font-bold underline italic">官方客戶服務專線</h4><p>專線電話: (02) 2718-8888 (服務時間 10:00 - 19:00)</p><h4 class="font-bold underline italic">電子郵件聯繫</h4><p>客服信箱: service@trendy-apparel.com</p></div>` },
+        faq: { t: '熱門常問問題 FAQ', e: 'Frequently Asked Questions', b: `<div class="space-y-6"><h4 class="font-bold underline italic">如何索取購買發票?</h4><p>我們將發送電子發票至您的註冊電子郵件或手機載具中。</p><h4 class="font-bold underline italic">一般出貨需要多久?</h4><p>現貨訂單通常會在 24-48 小時內完成包貨出貨手續。</p></div>` },
+        tracking: { t: '訂單狀態即時追蹤', e: 'Real-time Order Tracking', b: `<div class="space-y-6"><h4 class="font-bold underline italic">即時追蹤系統</h4><p>請登入會員中心，至「我的帳戶 -> 訂單歷史紀錄」即可查看最新的物流單號與配送進度轉態。</p></div>` }
+      }[k];
+      document.getElementById('info-modal-title').textContent = i.t; document.getElementById('info-modal-en').textContent = i.e; document.getElementById('info-modal-body').innerHTML = i.b; document.getElementById('info-modal').classList.remove('hidden');
+    }
+    function closeInfoModal() { document.getElementById('info-modal').classList.add('hidden'); }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      load(); updateUI(); renderPage();
+      document.getElementById('search-input').addEventListener('keypress', e => { if (e.key === 'Enter') { AppState.searchQuery = e.target.value; AppState.currentPage = 'shop'; renderPage(); toggleSearch(); } });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          closeModal(); closeInfoModal(); closeRecommendModal();
+          document.getElementById('cart-drawer').classList.add('hidden');
+          document.getElementById('wishlist-drawer').classList.add('hidden');
+          document.getElementById('auth-modal').classList.add('hidden');
+          document.getElementById('search-bar').classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
